@@ -1,1 +1,3 @@
-Game I am trying to make in C
+ASCII Game in C.
+
+Movement is arrow keys.

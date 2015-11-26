@@ -3,26 +3,10 @@
 #include "ctype.h"
 
 #include "maps/Maps.h"
+#include "input/InputController.h"
 
 #define TRUE 1
 #define FALSE 0
-
-int moveDataX, moveDataY;
-
-void move(Map *map, int x, int y)
-{
-  map->map[x + 1][y + 1] = '*';
-  map->map[map->currentPlayerLocation[0]][map->currentPlayerLocation[1]] = '-';
-  map->currentPlayerLocation[0] = x + 1;
-  map->currentPlayerLocation[1] = y + 1;
-}
-
-void askForMove(void)
-{
-  char temp;
-  printf("%s\n", "Please enter a place to move to (e.g. 0,0): ");
-  scanf("%d%c%d", &moveDataX, &temp, &moveDataY);
-}
 
 int main(int argc, char const *argv[])
 {
@@ -41,8 +25,8 @@ int main(int argc, char const *argv[])
   while (TRUE)
   {
     printMap(s);
-    askForMove();
-    move(s, moveDataX, moveDataY);
+    char direction = askForMove();
+    move(s, direction);
     system("cls");
   }
 
