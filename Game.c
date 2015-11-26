@@ -12,25 +12,17 @@ int main(int argc, char const *argv[])
 {
   system("cls");
 
-  Map *s = malloc(sizeof(Map));
-
-  s->name = "Test Map";
-
-  s->x = 10;
-  s->y = 10;
-
-  generateMap(s);
-  //printf("%s\n", "Map generated");
+  Map *test = generateMap("Test Map1", 8, 10);
 
   while (TRUE)
   {
-    printMap(s);
+    printMap(test);
     char direction = askForMove();
-    move(s, direction);
+    move(test, direction);
     system("cls");
   }
 
-  free(s);
+  free(test);
 
   return 0;
 }

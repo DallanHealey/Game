@@ -3,6 +3,7 @@
 
 // TODO: Dynamic map generater based on sizes given.
 // TODO: Rewrite Map generator
+// TODO: Possibly change char numbers to char*
 
 
 
@@ -17,7 +18,7 @@ typedef struct {
 
 } Map;
 
-void generateMap(Map *map);
+Map* generateMap(char* name, int sizeX, int sizeY);
 void printMap(Map *map);
 
 #endif

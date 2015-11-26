@@ -4,13 +4,6 @@
 
 void move(Map *map, char direction)
 {
-  /*
-  map->map[x + 1][y + 1] = '*';
-  map->map[map->currentPlayerLocation[0]][map->currentPlayerLocation[1]] = '-';
-  map->currentPlayerLocation[0] = x + 1;
-  map->currentPlayerLocation[1] = y + 1;
-  */
-
   map->map[map->currentPlayerLocation[0]][map->currentPlayerLocation[1]] = '-';
 
 //Checks movement direction then applies the movement
@@ -46,7 +39,6 @@ char askForMove(void)
   char temp;
   printf("%s\n", "Use arrow keys to move");
 
-//Test
   //Need to catch \0 because the up key is \0 + H
   char c;
   c = getch();
@@ -80,9 +72,4 @@ char askForMove(void)
       break;
     }
   }
-
-//End test
-
-
-  //scanf("%d%c%d", &moveDataX, &temp, &moveDataY);
 }

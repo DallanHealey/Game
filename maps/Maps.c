@@ -1,6 +1,7 @@
 #include "Maps.h"
 #include "stdlib.h"
 #include "stdio.h"
+#include "malloc.h"
 
 void printMap(Map *map)
 {
@@ -17,8 +18,13 @@ void printMap(Map *map)
 }
 
 // This method is a little long. It generates up to a 10x10 map. The switch methods are a little meh.
-void generateMap(Map *map)
+Map* generateMap(char* name, int sizeX, int sizeY)
 {
+  Map *map = malloc(sizeof(Map));
+  map->name = name;
+  map->x = sizeX;
+  map->y = sizeY;
+
   //Sets player location
   map->currentPlayerLocation[0] = rand() % map->x;
   map->currentPlayerLocation[1] = rand() % map->y;
@@ -224,4 +230,6 @@ void generateMap(Map *map)
     }
   }
   map->map[map->currentPlayerLocation[0]][map->currentPlayerLocation[1]] = '*';
+
+  return map;
 }
