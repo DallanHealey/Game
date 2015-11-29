@@ -48,6 +48,6 @@ void showInventory()
   else
     inventoryOpen = 0;
   system("cls");
-  printf("%25s\n", "Inventory - Press I to quit");
+  printf("%25s\n", "Inventory - Press 1 to quit");
   printf("Gold amount: %d\n", gold_amount);
 }

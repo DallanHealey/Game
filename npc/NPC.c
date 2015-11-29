@@ -8,35 +8,16 @@
 
 int dialogueOpen = 0;
 
-void checkNPC(Map *map, char direction)
+void checkNPC(Map *map)
 {
+  printf("%s\n", "Checking for NPC");
+
   char up = map->map[map->currentPlayerLocation[0] - 1][map->currentPlayerLocation[1]];
   char down = map->map[map->currentPlayerLocation[0] + 1][map->currentPlayerLocation[1]];
   char left = map->map[map->currentPlayerLocation[0]][map->currentPlayerLocation[1] - 1];
   char right = map->map[map->currentPlayerLocation[0]][map->currentPlayerLocation[1] + 1];
 
-  switch (direction)
-  {
-    case MOVE_UP:
-      if(up == NPC_IDENTIFIER)
-//        talkNPC();
-      break;
-
-    case MOVE_LEFT:
-      if(left == NPC_IDENTIFIER)
-//        talkNPC();
-      break;
-
-    case MOVE_RIGHT:
-      if(right == NPC_IDENTIFIER)
-
-      break;
-
-    case MOVE_DOWN:
-      if(down == NPC_IDENTIFIER)
-
-      break;
-  }
+  char input = getch();
 }
 
 void talkNPC(Map *map, NPC *npc)
@@ -45,22 +26,22 @@ void talkNPC(Map *map, NPC *npc)
     dialogueOpen = 1;
   else
     dialogueOpen = 0;
-  system("cls");
+//  system("cls");
   printf("%25s\n", "Talking - Press 5 to quit");
 
   int i;
   for(i = 0; i < 4; i++)
     printf("%d: %s\n", i + 1, npc->dialogue[i]);
-
-  int option;
-  scanf("%d\n", &option);
-  if(option == 5)
+  int option = 0;
+  do
   {
-    system("cls");
-    printMap(map);
-  }
-  else
-    printf("%s\n", npc->dialogue[option - 1]);
+    char optionChar = getch();
+    option = optionChar - '0';
+    if(option != 5)
+      printf("%s\n", npc->dialogue[option - 1]);
+  } while(option != 5);
+
+  printMap(map);
 }
 
 NPC* createNPC(Map *map, char* name, char* dialogueValues[4], int location[2])

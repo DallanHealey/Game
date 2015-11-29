@@ -2,14 +2,14 @@
 #include "stdlib.h"
 
 #include "../maps/Maps.h"
+#include  "../npc/NPC.h"
 #include "../items/Items.h"
 #include "InputController.h"
 
 void move(Map *map, char direction)
 {
   checkItemPickup(map, direction);
-  checkNPC(map, direction);
-//Checks movement direction then applies the movement
+  // Checks movement direction then applies the movement. Will handle collision
   switch(direction)
   {
     case 0:
@@ -45,6 +45,9 @@ void move(Map *map, char direction)
     case INV_KEY:
       showInventory();
     break;
+    case SPACEBAR:
+      checkNPC(map);
+    break;
     }
 
     if(inventoryOpen == 0)
@@ -57,7 +60,8 @@ void move(Map *map, char direction)
 char askForMove(void)
 {
   char temp;
-  printf("%s\n", "Use arrow keys to move, press 9 to quit, press 1 for inventory");
+  if(inventoryOpen == 0 || dialogueOpen == 0)
+      printf("%s\n", "Use arrow keys to move, press 9 to quit, press 1 for inventory");
 
   char keyPressed = getch();
   switch (keyPressed)

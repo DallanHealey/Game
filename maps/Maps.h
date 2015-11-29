@@ -1,8 +1,7 @@
 #ifndef MAPS_H_
 #define MAPS_H_
 
-// TODO: Dynamic map generater based on sizes given.
-// TODO: Rewrite Map generator
+// TODO: Make the map generator generate NPCs and items. 
 
 #define PLAYER 42
 
