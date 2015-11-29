@@ -1,16 +1,20 @@
-#include "Maps.h"
 #include "stdlib.h"
 #include "stdio.h"
 #include "malloc.h"
 
+#include "Maps.h"
+#include "../items/Items.h"
+
 void printMap(Map *map)
 {
+  system("cls");
+
   int i;
   int j;
   printf("%s\n", map->name);
-  for (i = 0; i < map->x + 1; i++)
+  for (i = 0; i <= map->x; i++)
   {
-    for (j = 0; j < map->y + 1; j++)
+    for (j = 0; j <= map->y; j++)
       printf("%c ", map->map[i][j]);
 
     printf("\n");
@@ -34,202 +38,10 @@ Map* generateMap(char* name, int sizeX, int sizeY)
   {
     for (j = 0; j <= map->y; j++)
     {
-      switch (i)
-      {
-        case 0:
-          switch (j)
-          {
-          case 0:
-            map->map[i][j] = ' ';
-            break;
-
-          case 1:
-            map->map[i][j] = '0';
-            break;
-
-          case 2:
-            map->map[i][j] = '1';
-            break;
-
-          case 3:
-            map->map[i][j] = '2';
-            break;
-
-          case 4:
-            map->map[i][j] = '3';
-            break;
-
-          case 5:
-            map->map[i][j] = '4';
-            break;
-
-          case 6:
-            map->map[i][j] = '5';
-            break;
-
-          case 7:
-            map->map[i][j] = '6';
-            break;
-
-          case 8:
-            map->map[i][j] = '7';
-            break;
-
-          case 9:
-            map->map[i][j] = '8';
-            break;
-
-          case 10:
-            map->map[i][j] = '9';
-            break;
-
-          case 11:
-            map->map[i][j] = '10';
-            break;
-
-          default:
-            map->map[i][j] = '-';
-          }
-          break;
-
-          case 1:
-            switch (j)
-            {
-            case 0:
-              map->map[i][j] = '0';
-              break;
-
-            default:
-              map->map[i][j] = '-';
-            }
-          break;
-
-          case 2:
-            switch (j)
-            {
-            case 0:
-              map->map[i][j] = '1';
-              break;
-
-            default:
-              map->map[i][j] = '-';
-            }
-          break;
-
-          case 3:
-            switch (j)
-            {
-            case 0:
-              map->map[i][j] = '2';
-              break;
-
-            default:
-              map->map[i][j] = '-';
-            }
-          break;
-
-          case 4:
-            switch (j)
-            {
-            case 0:
-              map->map[i][j] = '3';
-              break;
-
-            default:
-              map->map[i][j] = '-';
-            }
-          break;
-
-          case 5:
-            switch (j)
-            {
-            case 0:
-              map->map[i][j] = '4';
-              break;
-
-            default:
-              map->map[i][j] = '-';
-            }
-          break;
-
-          case 6:
-            switch (j)
-            {
-            case 0:
-              map->map[i][j] = '5';
-              break;
-
-            default:
-              map->map[i][j] = '-';
-            }
-          break;
-
-          case 7:
-            switch (j)
-            {
-            case 0:
-              map->map[i][j] = '6';
-              break;
-
-            default:
-              map->map[i][j] = '-';
-            }
-          break;
-
-          case 8:
-            switch (j)
-            {
-            case 0:
-              map->map[i][j] = '7';
-              break;
-
-            default:
-              map->map[i][j] = '-';
-            }
-          break;
-
-          case 9:
-            switch (j)
-            {
-            case 0:
-              map->map[i][j] = '8';
-              break;
-
-            default:
-              map->map[i][j] = '-';
-            }
-          break;
-
-          case 10:
-            switch (j)
-            {
-            case 0:
-              map->map[i][j] = '9';
-              break;
-
-            default:
-              map->map[i][j] = '-';
-            }
-          break;
-
-          case 11:
-            switch (j)
-            {
-            case 0:
-              map->map[i][j] = '10';
-              break;
-
-            default:
-              map->map[i][j] = '-';
-            }
-          break;
-
-          default:
-            map->map[i][j] = '-';
-        }
+      map->map[i][j] = '-';
     }
   }
-  map->map[map->currentPlayerLocation[0]][map->currentPlayerLocation[1]] = '*';
-
+    map->map[map->currentPlayerLocation[0]][map->currentPlayerLocation[1]] = PLAYER;
+    map->map[2][2] = GOLD;
   return map;
 }

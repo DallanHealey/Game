@@ -11,15 +11,16 @@
 int main(int argc, char const *argv[])
 {
   system("cls");
-
-  Map *test = generateMap("Test Map1", 8, 10);
+  printf("%s\n", "Hello");
+  Map *test = generateMap("Test Map", 10, 10);
+  printMap(test);
 
   while (TRUE)
   {
-    printMap(test);
+    // printMap(test);
     char direction = askForMove();
     move(test, direction);
-    system("cls");
+    //system("cls");
   }
 
   free(test);
