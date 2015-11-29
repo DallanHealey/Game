@@ -7,7 +7,7 @@ int inventoryOpen;
 int gold_amount;
 
 //Item definitions
-#define GOLD '$'
+#define GOLD 36
 
 //Functions
 void checkItemPickup(Map *map, char direction);

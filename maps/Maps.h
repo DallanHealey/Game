@@ -4,7 +4,7 @@
 // TODO: Dynamic map generater based on sizes given.
 // TODO: Rewrite Map generator
 
-#define PLAYER '*'
+#define PLAYER 42
 
 typedef struct {
   char* name;

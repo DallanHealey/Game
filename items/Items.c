@@ -9,29 +9,34 @@ int inventoryOpen = 0;
 
 void checkItemPickup(Map *map, char direction)
 {
+  char up = map->map[map->currentPlayerLocation[0] - 1][map->currentPlayerLocation[1]];
+  char down = map->map[map->currentPlayerLocation[0] + 1][map->currentPlayerLocation[1]];
+  char left = map->map[map->currentPlayerLocation[0]][map->currentPlayerLocation[1] - 1];
+  char right = map->map[map->currentPlayerLocation[0]][map->currentPlayerLocation[1] + 1];
+
   switch (direction)
   {
     case MOVE_UP:
-      if(map->map[map->currentPlayerLocation[0] - 1][map->currentPlayerLocation[1]] == GOLD)
-        gold_amount = gold_amount + 1;
+      if(up == GOLD)
+        gold_amount++;
       break;
 
 
     case MOVE_LEFT:
-      if(map->map[map->currentPlayerLocation[0]][map->currentPlayerLocation[1] - 1] == GOLD)
-        gold_amount = gold_amount + 1;
+      if(left == GOLD)
+        gold_amount++;
       break;
 
 
     case MOVE_RIGHT:
-      if(map->map[map->currentPlayerLocation[0]][map->currentPlayerLocation[1] + 1] == GOLD)
-        gold_amount = gold_amount + 1;
+      if(right == GOLD)
+        gold_amount++;
       break;
 
 
     case MOVE_DOWN:
-      if(map->map[map->currentPlayerLocation[0] + 1][map->currentPlayerLocation[1]] == GOLD)
-        gold_amount = gold_amount + 1;
+      if(down == GOLD)
+        gold_amount++;
       break;
   }
 }

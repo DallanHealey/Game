@@ -4,6 +4,7 @@
 
 #include "Maps.h"
 #include "../items/Items.h"
+#include "../npc/NPC.h"
 
 void printMap(Map *map)
 {
@@ -29,9 +30,13 @@ Map* generateMap(char* name, int sizeX, int sizeY)
   map->x = sizeX;
   map->y = sizeY;
 
+  char* dialogue[4] = {"Test", "Help", "Please", "Easy"};
+  int location[2] = {5, 5};
+  NPC *npc = createNPC(map, "Erika", dialogue, location);
+  talkNPC(map, npc);
   //Sets player location
-  map->currentPlayerLocation[0] = rand() % map->x;
-  map->currentPlayerLocation[1] = rand() % map->y;
+  map->currentPlayerLocation[0] = rand() % sizeX;
+  map->currentPlayerLocation[1] = rand() % sizeY;
 
   int i, j;
   for (i = 0; i <= map->x; i++)
@@ -43,5 +48,8 @@ Map* generateMap(char* name, int sizeX, int sizeY)
   }
     map->map[map->currentPlayerLocation[0]][map->currentPlayerLocation[1]] = PLAYER;
     map->map[2][2] = GOLD;
+    map->map[5][4] = GOLD;
+
+    map->map[5][5] = NPC_IDENTIFIER;
   return map;
 }

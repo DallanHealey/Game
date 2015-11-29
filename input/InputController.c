@@ -8,6 +8,7 @@
 void move(Map *map, char direction)
 {
   checkItemPickup(map, direction);
+  checkNPC(map, direction);
 //Checks movement direction then applies the movement
   switch(direction)
   {
