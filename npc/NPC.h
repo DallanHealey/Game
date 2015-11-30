@@ -1,7 +1,7 @@
 #ifndef NPC_H
 #define NPC_H
 
-// TODO: Make when spacebar is pressed checks for NPC around player then interacts with it. Proabaly easy way to do it
+// TODO: Make when spacebar is pressed checks for NPC around player then interacts with it. Proabaly easiest way to do it
 
 #define NPC_IDENTIFIER 63
 #define SPACEBAR 32
