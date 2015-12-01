@@ -20,7 +20,8 @@ int main(int argc, char const *argv[])
     move(test, direction);
   }
 
-  free(test);
+	free(test);
+  freeEverything();
 
   return 0;
 }

@@ -1,7 +1,7 @@
 #ifndef MAPS_H_
 #define MAPS_H_
 
-// TODO: Make the map generator generate NPCs and items. 
+// TODO: Make the map generator generate NPCs and items.
 
 #define PLAYER 42
 

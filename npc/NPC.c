@@ -8,16 +8,45 @@
 
 int dialogueOpen = 0;
 
-void checkNPC(Map *map)
+int *checkNPC(Map *map)
 {
-  printf("%s\n", "Checking for NPC");
+  //printf("%s\n", "Checking for NPC");
 
   char up = map->map[map->currentPlayerLocation[0] - 1][map->currentPlayerLocation[1]];
   char down = map->map[map->currentPlayerLocation[0] + 1][map->currentPlayerLocation[1]];
   char left = map->map[map->currentPlayerLocation[0]][map->currentPlayerLocation[1] - 1];
   char right = map->map[map->currentPlayerLocation[0]][map->currentPlayerLocation[1] + 1];
 
-  char input = getch();
+  if(up == NPC_IDENTIFIER)
+	{
+		static int movementLocation[2];
+		movementLocation[0] = map->currentPlayerLocation[0] - 1;
+		movementLocation[1] = map->currentPlayerLocation[1];
+		return movementLocation;
+	}
+	else if(down == NPC_IDENTIFIER)
+	{
+		static int movementLocation[2];
+		movementLocation[0] = map->currentPlayerLocation[0] + 1;
+		movementLocation[1] = map->currentPlayerLocation[1];
+		return movementLocation;
+	}
+	else if(left == NPC_IDENTIFIER)
+	{
+		static int movementLocation[2];
+		movementLocation[0] = map->currentPlayerLocation[0];
+		movementLocation[1] = map->currentPlayerLocation[1] - 1;
+		return movementLocation;
+	}
+	else if(right == NPC_IDENTIFIER)
+	{
+		static int movementLocation[2];
+		movementLocation[0] = map->currentPlayerLocation[0];
+		movementLocation[1] = map->currentPlayerLocation[1] + 1;
+		return movementLocation;
+	}
+	else
+		return 0;
 }
 
 void talkNPC(Map *map, NPC *npc)
@@ -26,8 +55,8 @@ void talkNPC(Map *map, NPC *npc)
     dialogueOpen = 1;
   else
     dialogueOpen = 0;
-//  system("cls");
-  printf("%25s\n", "Talking - Press 5 to quit");
+  system("cls");
+  printf("Talking to %s - Press 5 to quit\n", npc->name);
 
   int i;
   for(i = 0; i < 4; i++)

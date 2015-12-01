@@ -33,7 +33,8 @@ Map* generateMap(char* name, int sizeX, int sizeY)
   char* dialogue[4] = {"Test", "Help", "Please", "Easy"};
   int location[2] = {5, 5};
   NPC *npc = createNPC(map, "Erika", dialogue, location);
-  talkNPC(map, npc);
+	testMapNPC[0] = npc;
+	
   //Sets player location
   map->currentPlayerLocation[0] = rand() % sizeX;
   map->currentPlayerLocation[1] = rand() % sizeY;
