@@ -21,7 +21,6 @@ int main(int argc, char const *argv[])
   }
 
 	free(test);
-  freeEverything();
-
+  
   return 0;
 }

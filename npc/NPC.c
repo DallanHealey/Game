@@ -3,6 +3,7 @@
 
 #include "../maps/Maps.h"
 #include "NPC.h"
+#include "dialogue/Dialogue.h"
 #include "../input/InputController.h"
 
 
@@ -65,6 +66,9 @@ void talkNPC(Map *map, NPC *npc)
   do
   {
     char optionChar = getch();
+    if (optionChar == SPACEBAR)
+      continue;
+    
     option = optionChar - '0';
     if(option != 5)
       printf("%s\n", npc->dialogue[option - 1]);

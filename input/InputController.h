@@ -3,7 +3,6 @@
 
 // TODO: Make collision detection where you cannot go out of bounds. Don't know where to put that yet
 // TODO: Handle control-c
-// TODO: Weird quit bug after not finding NPC
 
 
 //Definitions for movement
@@ -24,6 +23,6 @@ void move(Map *map, char direction);
 char askForMove(void);
 
 // Frees all the malloc() objects
-void freeEverything();
+void freeEverything(Map *map);
 
 #endif

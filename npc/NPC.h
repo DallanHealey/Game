@@ -8,14 +8,16 @@
 int dialogueOpen;
 int movementLocation[2];
 
-typedef struct
+struct NPC
 {
   char* name;
   char* dialogue[4];
   int location[2];
-} NPC;
+};
 
-NPC *testMapNPC[1];
+// This needs to be here because I declare the NPC struct in the Map struct.
+// If this is not here it causes an error of undefined type because of alias refrencing or something
+typedef struct NPC NPC;
 
 int *checkNPC(Map *map);
 void talkNPC(Map *map, NPC *npc);

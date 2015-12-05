@@ -43,6 +43,7 @@ void move(Map *map, char direction)
     //Checks if other keys are pressed
     case QUIT_KEY:
       printf("Quitting...\n");
+      freeEverything(map);
       exit(1);
     break;
 
@@ -57,8 +58,8 @@ void move(Map *map, char direction)
 				int i = 0;
 				for (i = 0; i < 1; i++)
 				{
-					if(testMapNPC[i]->location[0] == *(check + i) && testMapNPC[i]->location[0] == *(check + i))
-						talkNPC(map, testMapNPC[i]);
+					if(map->npcs[i]->location[0] == *(check + i) && map->npcs[i]->location[0] == *(check + i))
+						talkNPC(map, map->npcs[i]);
 				}
 			}
     break;
@@ -124,10 +125,10 @@ char askForMove(void)
 }
 
 // Frees all the malloc() objects
-void freeEverything()
+void freeEverything(Map *map)
 {
 	int i;
 	for(i = 0; i < 1; i++)
-		free(testMapNPC[i]);
+		free(map->npcs[i]);
 	//free(test);
 }

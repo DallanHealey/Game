@@ -3,8 +3,8 @@
 #include "malloc.h"
 
 #include "Maps.h"
-#include "../items/Items.h"
 #include "../npc/NPC.h"
+#include "../items/Items.h"
 
 void printMap(Map *map)
 {
@@ -12,7 +12,7 @@ void printMap(Map *map)
 
   int i;
   int j;
-  printf("%s\n", map->name);
+  printf("Currently on %s\n", map->name);
   for (i = 0; i <= map->x; i++)
   {
     for (j = 0; j <= map->y; j++)
@@ -33,7 +33,7 @@ Map* generateMap(char* name, int sizeX, int sizeY)
   char* dialogue[4] = {"Test", "Help", "Please", "Easy"};
   int location[2] = {5, 5};
   NPC *npc = createNPC(map, "Erika", dialogue, location);
-	testMapNPC[0] = npc;
+	map->npcs[0] = npc;
 	
   //Sets player location
   map->currentPlayerLocation[0] = rand() % sizeX;

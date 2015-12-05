@@ -9,7 +9,9 @@ typedef struct {
   char* name;
   int x, y;
   int currentPlayerLocation[2];
-
+  
+  //Right now max of 5 npcs per map
+  struct NPC *npcs[5];
   //Game will crash if map size is bigger than [x - 1][y - 1]
   char map[101][101];
 
