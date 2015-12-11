@@ -22,6 +22,8 @@ int *check;
 void move(Map *map, char direction);
 char askForMove(void);
 
+int isCollision(Map *map, char direction);
+
 // Frees all the malloc() objects
 void freeEverything(Map *map);
 
