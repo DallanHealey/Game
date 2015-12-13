@@ -67,7 +67,7 @@ void talkNPC(Map *map, NPC *npc)
 			continue;
 
 		option = optionChar - '0';
-		if (option != 5)
+		if (option <= 4)
 			printf("%s\n", npc->dialogue[option - 1]);
 	} while (option != 5);
 

@@ -30,10 +30,15 @@ Map* generateMap(char* name, int sizeX, int sizeY)
 	map->x = sizeX;
 	map->y = sizeY;
 
-	char* dialogue[4] = { "Test", "Help", "Please", "Easy" };
+	char* dialogueNPC[4] = { "Test", "Help", "Please", "Easy" };
 	int location[2] = { 5, 5 };
-	NPC *npc = createNPC(map, "Erika", dialogue, location);
+	NPC *npc = createNPC(map, "Erika", dialogueNPC, location);
 	map->npcs[0] = npc;
+
+	char* dialogueTest[4] = { "Move", "Out", "Of", "The Way" };
+	int locationTest[2] = { 2, 3 };
+	NPC *npcTest = createNPC(map, "Aaron", dialogueTest, locationTest);
+	map->npcs[0] = npcTest;
 
 	//Sets player location
 	map->currentPlayerLocation[0] = rand() % sizeX;
@@ -47,10 +52,12 @@ Map* generateMap(char* name, int sizeX, int sizeY)
 			map->map[i][j] = '-';
 		}
 	}
+
 	map->map[map->currentPlayerLocation[0]][map->currentPlayerLocation[1]] = PLAYER;
 	map->map[2][2] = GOLD;
 	map->map[5][4] = GOLD;
 
 	map->map[5][5] = NPC_IDENTIFIER;
+	map->map[2][3] = NPC_IDENTIFIER;
 	return map;
 }
