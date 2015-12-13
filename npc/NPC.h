@@ -1,8 +1,6 @@
 #ifndef NPC_H
 #define NPC_H
 
-// TODO: Make when spacebar is pressed checks for NPC around player then interacts with it. Proabaly easiest way to do it
-
 #define NPC_IDENTIFIER 63
 
 int dialogueOpen;
@@ -10,9 +8,9 @@ int movementLocation[2];
 
 struct NPC
 {
-  char* name;
-  char* dialogue[4];
-  int location[2];
+	char* name;
+	char* dialogue[4];
+	int location[2];
 };
 
 // This needs to be here because I declare the NPC struct in the Map struct.

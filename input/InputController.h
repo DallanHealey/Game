@@ -1,9 +1,7 @@
 #ifndef INPUT_H
 #define INPUT_H
 
-// TODO: Make collision detection where you cannot go out of bounds. Don't know where to put that yet
 // TODO: Handle control-c
-
 
 //Definitions for movement
 #define MOVE_UP 72
