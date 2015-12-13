@@ -12,7 +12,7 @@
 //Definitions for other key presses. Make sure to register these in the askForMove() function. Otherwise they
 // 																								will not return right.
 #define QUIT_KEY '9'
-#define INV_KEY '1'
+#define INV_KEY 'i'
 #define SPACEBAR 32
 
 int *check;

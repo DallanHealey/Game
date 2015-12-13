@@ -10,7 +10,7 @@ int dialogueOpen = 0;
 
 int *checkNPC(Map *map)
 {
-	//printf("%s\n", "Checking for NPC");
+	printf("%s\n", "Checking for NPC");
 
 	char up = map->map[map->currentPlayerLocation[0] - 1][map->currentPlayerLocation[1]];
 	char down = map->map[map->currentPlayerLocation[0] + 1][map->currentPlayerLocation[1]];

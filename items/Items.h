@@ -11,6 +11,6 @@ int gold_amount;
 
 //Functions
 void checkItemPickup(Map *map, char direction);
-void showInventory();
+void showInventory(void);
 
 #endif

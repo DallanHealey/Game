@@ -11,7 +11,7 @@
 int main(int argc, char const *argv[])
 {
 	system("cls");
-	Map *test = generateMap("Test Map", 20, 20);
+	test = generateMap("Test Map", 20, 20);
 	printMap(test);
 
 	while (TRUE)

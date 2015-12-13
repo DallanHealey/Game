@@ -38,12 +38,12 @@ void checkItemPickup(Map *map, char direction)
 	}
 }
 
-void showInventory()
+void showInventory(void)
 {
 	if (inventoryOpen == 0)
 		inventoryOpen = 1;
 	else inventoryOpen = 0;
 	system("cls");
-	printf("%25s\n", "Inventory - Press 1 to quit");
+	printf("%25s\n", "Inventory - Press I to quit");
 	printf("Gold amount: %d\n", gold_amount);
 }

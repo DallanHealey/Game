@@ -35,11 +35,6 @@ Map* generateMap(char* name, int sizeX, int sizeY)
 	NPC *npc = createNPC(map, "Erika", dialogueNPC, location);
 	map->npcs[0] = npc;
 
-	char* dialogueTest[4] = { "Move", "Out", "Of", "The Way" };
-	int locationTest[2] = { 2, 3 };
-	NPC *npcTest = createNPC(map, "Aaron", dialogueTest, locationTest);
-	map->npcs[0] = npcTest;
-
 	//Sets player location
 	map->currentPlayerLocation[0] = rand() % sizeX;
 	map->currentPlayerLocation[1] = rand() % sizeY;
@@ -58,6 +53,6 @@ Map* generateMap(char* name, int sizeX, int sizeY)
 	map->map[5][4] = GOLD;
 
 	map->map[5][5] = NPC_IDENTIFIER;
-	map->map[2][3] = NPC_IDENTIFIER;
+
 	return map;
 }

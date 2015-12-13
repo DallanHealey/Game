@@ -61,11 +61,13 @@ void move(Map *map, char direction)
 			check = checkNPC(map);
 			if (check != 0)
 			{
-				int i = 0;
+				printf("Check was successful\n");
+				int i;
 				for (i = 0; i < 1; i++)
 				{
-					if (map->npcs[i]->location[0] == *(check + i) && map->npcs[i]->location[0] == *(check + i))
+					if (map->npcs[i]->location[0] == *(check + i) && map->npcs[i]->location[1] == *(check + 1 + i))
 						talkNPC(map, map->npcs[i]);
+					else printf("Error talking to NPC\n");
 				}
 			}
 			break;
@@ -74,19 +76,19 @@ void move(Map *map, char direction)
 			printMap(map);
 		}
 	}
-	// Checks if inventory is closed. If so, print the map
+	//Checks if inventory is closed. If so, print the map
 	if (inventoryOpen == 0)
 	{
 		printMap(map);
 	}
 }
 
-// Asks the user to move and returns the key entered. Also handles regulaur key presses
+//Asks the user to move and returns the key entered. Also handles regulaur key presses
 char askForMove(void)
 {
 	char temp;
 	if (inventoryOpen == 0 || dialogueOpen == 0)
-		printf("%s\n", "Use arrow keys to move, press 9 to quit, press 1 for inventory, spacebar to talk to npcs (?)");
+		printf("%s\n", "Use arrow keys to move, press 9 to quit, press I for inventory, spacebar to talk to npcs (?)");
 
 	char keyPressed = getch();
 	switch (keyPressed)
@@ -180,5 +182,5 @@ void freeEverything(Map *map)
 	int i;
 	for (i = 0; i < 1; i++)
 		free(map->npcs[i]);
-	//free(test);
+	free(test);
 }

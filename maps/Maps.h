@@ -18,6 +18,8 @@ typedef struct
 
 } Map;
 
+Map *test;
+
 Map* generateMap(char* name, int sizeX, int sizeY);
 void printMap(Map *map);
 
